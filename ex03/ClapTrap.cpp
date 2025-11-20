@@ -1,13 +1,13 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void): _name(""), _hit_Pts(100),_energy_Pts(50), _attack_dmg(20) 
+ClapTrap::ClapTrap(void): _name(""), _hit_Pts(100),_energy_Pts(100), _attack_dmg(30) 
 {
     std::cout << "Default constructor called." << std::endl;
     return;
 }
 
 
-ClapTrap::ClapTrap(std::string name):_name(name), _hit_Pts(100),_energy_Pts(50), _attack_dmg(20) 
+ClapTrap::ClapTrap(std::string name):_name(name), _hit_Pts(100),_energy_Pts(100), _attack_dmg(30) 
 {
     std::cout << "Parametric constructor called." << std::endl;
     return;
@@ -123,6 +123,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
     return;
 }
+
 
 void ClapTrap::getStats(void) const
 {

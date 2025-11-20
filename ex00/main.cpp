@@ -9,8 +9,11 @@ int main(void)
     ct.attack("Jefff");
     ct.attack("Karen");
     ct.takeDamage(8);
-    ct.beRepaired(10);
+    ct.getStats();
+    ct.beRepaired(100);
+    ct.getStats();
     ct.takeDamage(11);
+    ct.getStats();
     ct.attack("Harl");
 
 

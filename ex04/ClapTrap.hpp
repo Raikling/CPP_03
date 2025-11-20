@@ -5,7 +5,7 @@
 
 class ClapTrap
 {
-    private:
+    protected:      //changed this to protected so the child class can have access to the memeber attributes
         std::string _name;
         unsigned int _hit_Pts;
         unsigned int _energy_Pts;
@@ -25,13 +25,11 @@ class ClapTrap
         unsigned int getHitPts (void) const;
         unsigned int getEnergyPts (void) const;
         unsigned int getAttackdmg (void) const;
-        void getStats(void) const;
+         void getStats(void) const;
 
         void attack(const std::string& target);     
         void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);  
-        
-        
+        void beRepaired(unsigned int amount);     
 
 };
 

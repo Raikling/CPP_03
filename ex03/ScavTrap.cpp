@@ -10,7 +10,7 @@ ScavTrap::ScavTrap(void): ClapTrap()
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-    std::cout << "ScavTrap's parametric constructor called." << std::endl;
+     std::cout << "ScavTrap's parametric constructor called." << std::endl;
     return;
 }
 

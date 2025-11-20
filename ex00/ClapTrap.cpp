@@ -38,8 +38,8 @@ ClapTrap::ClapTrap(ClapTrap const& other)
 {
     std::cout << "Copy constuctor called." << std::endl;
     this->_name = other.getName();
-    this->_hit_Pts = other.getHitPts();
-    this->_energy_Pts = other.getEnergyPts();
+    this->_hit_Pts = other.getHitPts();         //do i really need to add these 3 lines ? i think they are already initialized with the constructor, look it up 
+    this->_energy_Pts = other.getEnergyPts();   //again maybe it will be called later after receiving dmg or using energy
     this->_attack_dmg = other.getAttackdmg();
 
     return;
@@ -52,7 +52,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& rhs)
     if (this != &rhs)
     {
         this->_name = rhs.getName();
-        this->_hit_Pts = rhs.getHitPts();
+        this->_hit_Pts = rhs.getHitPts();       //here too
         this->_energy_Pts = rhs.getEnergyPts();
         this->_attack_dmg = rhs.getAttackdmg();
     }
@@ -80,7 +80,6 @@ void ClapTrap::attack(const std::string& target)
         std::cout << "ClapTrap " << this->_name << " Cannot be repaired because it is either DEAD or out of ENERGY." << std::endl;
         return ;
     }
-
 
     return;
 }
@@ -117,7 +116,19 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         std::cout << "ClapTrap " << this->_name << " repaired " << amount << " hit points." << std::endl;
         this->_hit_Pts += amount;
+        if (this->_hit_Pts > 10)
+            this->_hit_Pts = 10;
         this->_energy_Pts--;
     }
     return;
+}
+
+void ClapTrap::getStats(void) const
+{
+    std::cout << "----------------------------" << std::endl;
+    std::cout << "ScavTrap: " << this->getName() << " stats:"<< std::endl;
+    std::cout << "Hit Points: " << this->getHitPts() << std::endl;
+    std::cout << "Energy Points: " << this->getEnergyPts() << std::endl;
+    std::cout << "Attack Damage: " << this->getAttackdmg() << std::endl;
+    std::cout << "----------------------------" << std::endl;
 }
